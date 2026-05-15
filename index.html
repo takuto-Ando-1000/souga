@@ -294,6 +294,15 @@
     }
   </style>
 </head>
+<script>
+/* Netlify Identity のトークンを検出したら admin.html へリダイレクト */
+(function(){
+  var h = location.hash;
+  if(h && (h.indexOf('recovery_token=') !== -1 || h.indexOf('invite_token=') !== -1 || h.indexOf('confirmation_token=') !== -1)){
+    location.replace('/admin.html' + h);
+  }
+})();
+</script>
 <body>
 
 <!-- Brush SVG overlay -->
